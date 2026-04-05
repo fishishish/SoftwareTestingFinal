@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="15" passed="15" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-04-04T21:20:42 EDT" name="Github Tests" finished-at="2026-04-04T21:22:15 EDT" duration-ms="93041">
+    <groups>
+    </groups>
+    <test started-at="2026-04-04T21:20:42 EDT" name="Login Tests" finished-at="2026-04-04T21:21:35 EDT" duration-ms="53144">
+      <class name="LoginTests">
+        <test-method is-config="true" signature="suiteSetup()[pri:0, instance:LoginTests@419c5f1a]" started-at="2026-04-04T21:20:42 EDT" name="suiteSetup" finished-at="2026-04-04T21:20:43 EDT" duration-ms="1153" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- suiteSetup -->
+        <test-method signature="test1_VerifyLoginPageTitle()[pri:1, instance:LoginTests@419c5f1a]" started-at="2026-04-04T21:20:44 EDT" name="test1_VerifyLoginPageTitle" finished-at="2026-04-04T21:20:53 EDT" duration-ms="9000" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test1_VerifyLoginPageTitle -->
+        <test-method is-config="true" signature="resetAfterLoginTest(java.lang.reflect.Method)[pri:0, instance:LoginTests@419c5f1a]" started-at="2026-04-04T21:20:53 EDT" name="resetAfterLoginTest" finished-at="2026-04-04T21:20:53 EDT" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void LoginTests.test1_VerifyLoginPageTitle()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- resetAfterLoginTest -->
+        <test-method signature="test2_ValidLogin()[pri:2, instance:LoginTests@419c5f1a]" started-at="2026-04-04T21:20:53 EDT" name="test2_ValidLogin" finished-at="2026-04-04T21:21:03 EDT" duration-ms="10700" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test2_ValidLogin -->
+        <test-method is-config="true" signature="resetAfterLoginTest(java.lang.reflect.Method)[pri:0, instance:LoginTests@419c5f1a]" started-at="2026-04-04T21:21:03 EDT" name="resetAfterLoginTest" finished-at="2026-04-04T21:21:06 EDT" duration-ms="2803" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void LoginTests.test2_ValidLogin()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- resetAfterLoginTest -->
+        <test-method signature="test3_InvalidPasswordShowsError()[pri:3, instance:LoginTests@419c5f1a]" started-at="2026-04-04T21:21:06 EDT" name="test3_InvalidPasswordShowsError" finished-at="2026-04-04T21:21:19 EDT" duration-ms="12488" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test3_InvalidPasswordShowsError -->
+        <test-method is-config="true" signature="resetAfterLoginTest(java.lang.reflect.Method)[pri:0, instance:LoginTests@419c5f1a]" started-at="2026-04-04T21:21:19 EDT" name="resetAfterLoginTest" finished-at="2026-04-04T21:21:19 EDT" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void LoginTests.test3_InvalidPasswordShowsError()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- resetAfterLoginTest -->
+        <test-method signature="test4_ForgotPasswordLink()[pri:4, instance:LoginTests@419c5f1a]" started-at="2026-04-04T21:21:19 EDT" name="test4_ForgotPasswordLink" finished-at="2026-04-04T21:21:27 EDT" duration-ms="8640" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test4_ForgotPasswordLink -->
+        <test-method is-config="true" signature="resetAfterLoginTest(java.lang.reflect.Method)[pri:0, instance:LoginTests@419c5f1a]" started-at="2026-04-04T21:21:27 EDT" name="resetAfterLoginTest" finished-at="2026-04-04T21:21:27 EDT" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void LoginTests.test4_ForgotPasswordLink() throws java.io.IOException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- resetAfterLoginTest -->
+        <test-method signature="test5_SignInWithGoogle()[pri:5, instance:LoginTests@419c5f1a]" started-at="2026-04-04T21:21:27 EDT" name="test5_SignInWithGoogle" finished-at="2026-04-04T21:21:33 EDT" duration-ms="6171" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test5_SignInWithGoogle -->
+        <test-method is-config="true" signature="resetAfterLoginTest(java.lang.reflect.Method)[pri:0, instance:LoginTests@419c5f1a]" started-at="2026-04-04T21:21:33 EDT" name="resetAfterLoginTest" finished-at="2026-04-04T21:21:33 EDT" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void LoginTests.test5_SignInWithGoogle()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- resetAfterLoginTest -->
+        <test-method is-config="true" signature="suiteTeardown()[pri:0, instance:LoginTests@419c5f1a]" started-at="2026-04-04T21:21:33 EDT" name="suiteTeardown" finished-at="2026-04-04T21:21:35 EDT" duration-ms="2154" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- suiteTeardown -->
+      </class> <!-- LoginTests -->
+    </test> <!-- Login Tests -->
+    <test started-at="2026-04-04T21:21:35 EDT" name="Signup Tests" finished-at="2026-04-04T21:21:54 EDT" duration-ms="18750">
+      <class name="SignupTests">
+        <test-method is-config="true" signature="suiteSetup()[pri:0, instance:SignupTests@22a637e7]" started-at="2026-04-04T21:21:35 EDT" name="suiteSetup" finished-at="2026-04-04T21:21:36 EDT" duration-ms="677" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- suiteSetup -->
+        <test-method signature="test1_VerifySignUpPageTitle()[pri:1, instance:SignupTests@22a637e7]" started-at="2026-04-04T21:21:36 EDT" name="test1_VerifySignUpPageTitle" finished-at="2026-04-04T21:21:41 EDT" duration-ms="5122" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test1_VerifySignUpPageTitle -->
+        <test-method signature="test2_EmptyFormValidation()[pri:2, instance:SignupTests@22a637e7]" started-at="2026-04-04T21:21:41 EDT" name="test2_EmptyFormValidation" finished-at="2026-04-04T21:21:45 EDT" duration-ms="3288" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test2_EmptyFormValidation -->
+        <test-method signature="test3_CountryDropdown()[pri:3, instance:SignupTests@22a637e7]" started-at="2026-04-04T21:21:45 EDT" name="test3_CountryDropdown" finished-at="2026-04-04T21:21:48 EDT" duration-ms="3837" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test3_CountryDropdown -->
+        <test-method signature="test4_InvalidEmailError()[pri:4, instance:SignupTests@22a637e7]" started-at="2026-04-04T21:21:48 EDT" name="test4_InvalidEmailError" finished-at="2026-04-04T21:21:50 EDT" duration-ms="1381" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test4_InvalidEmailError -->
+        <test-method signature="test5_TermsOfServiceLink()[pri:5, instance:SignupTests@22a637e7]" started-at="2026-04-04T21:21:50 EDT" name="test5_TermsOfServiceLink" finished-at="2026-04-04T21:21:52 EDT" duration-ms="2300" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test5_TermsOfServiceLink -->
+        <test-method is-config="true" signature="suiteTeardown()[pri:0, instance:SignupTests@22a637e7]" started-at="2026-04-04T21:21:52 EDT" name="suiteTeardown" finished-at="2026-04-04T21:21:54 EDT" duration-ms="2138" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- suiteTeardown -->
+      </class> <!-- SignupTests -->
+    </test> <!-- Signup Tests -->
+    <test started-at="2026-04-04T21:21:54 EDT" name="Search Tests" finished-at="2026-04-04T21:22:15 EDT" duration-ms="21130">
+      <class name="SearchTests">
+        <test-method is-config="true" signature="suiteSetup()[pri:0, instance:SearchTests@be64738]" started-at="2026-04-04T21:21:54 EDT" name="suiteSetup" finished-at="2026-04-04T21:21:55 EDT" duration-ms="658" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- suiteSetup -->
+        <test-method signature="test1_SearchDropdownSecurity()[pri:1, instance:SearchTests@be64738]" started-at="2026-04-04T21:21:55 EDT" name="test1_SearchDropdownSecurity" finished-at="2026-04-04T21:22:01 EDT" duration-ms="6261" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test1_SearchDropdownSecurity -->
+        <test-method signature="test2_SearchSyntaxTipsLink()[pri:2, instance:SearchTests@be64738]" started-at="2026-04-04T21:22:01 EDT" name="test2_SearchSyntaxTipsLink" finished-at="2026-04-04T21:22:04 EDT" duration-ms="3221" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test2_SearchSyntaxTipsLink -->
+        <test-method signature="test3_SearchTesting()[pri:3, instance:SearchTests@be64738]" started-at="2026-04-04T21:22:04 EDT" name="test3_SearchTesting" finished-at="2026-04-04T21:22:09 EDT" duration-ms="4368" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test3_SearchTesting -->
+        <test-method signature="test4_FilterIssuesSortNewest()[pri:4, instance:SearchTests@be64738]" started-at="2026-04-04T21:22:09 EDT" name="test4_FilterIssuesSortNewest" finished-at="2026-04-04T21:22:11 EDT" duration-ms="2580" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test4_FilterIssuesSortNewest -->
+        <test-method signature="test5_AdvancedSearch()[pri:5, instance:SearchTests@be64738]" started-at="2026-04-04T21:22:11 EDT" name="test5_AdvancedSearch" finished-at="2026-04-04T21:22:13 EDT" duration-ms="1907" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test5_AdvancedSearch -->
+        <test-method is-config="true" signature="suiteTeardown()[pri:0, instance:SearchTests@be64738]" started-at="2026-04-04T21:22:13 EDT" name="suiteTeardown" finished-at="2026-04-04T21:22:15 EDT" duration-ms="2132" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- suiteTeardown -->
+      </class> <!-- SearchTests -->
+    </test> <!-- Search Tests -->
+  </suite> <!-- Github Tests -->
+</testng-results>

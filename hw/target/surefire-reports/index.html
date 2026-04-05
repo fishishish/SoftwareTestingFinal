@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <meta charset='utf-8'>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports1.css" rel="stylesheet" id="ultra" />
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" id="retro" disabled="false"/>
+    <script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
+      <br/>
+      <span class="top-banner-font-1">1 suite</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" title="Collapse/expand all the suites" class="collapse-all-link">
+          <img src="collapseall.gif" class="collapse-all-icon">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" panel-name="suite-Github_Tests" class="navigator-link">
+              <span class="suite-name border-passed">Github Tests</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" panel-name="test-xml-Github_Tests" class="navigator-link ">
+                    <span>C:\Users\Theba\Downloads\VSCode\HW - Copy\hw\testng.xml</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="testlist-Github_Tests" class="navigator-link ">
+                    <span class="test-stats">3 tests</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="group-Github_Tests" class="navigator-link ">
+                    <span>0 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="times-Github_Tests" class="navigator-link ">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="reporter-Github_Tests" class="navigator-link ">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="ignored-methods-Github_Tests" class="navigator-link ">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="chronological-Github_Tests" class="navigator-link ">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">15 methods,   15 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-Github_Tests" class="hide-methods passed suite-Github_Tests"> (hide)</a> <!-- hide-methods passed suite-Github_Tests -->
+                      <a href="#" panel-name="suite-Github_Tests" class="show-methods passed suite-Github_Tests"> (show)</a> <!-- show-methods passed suite-Github_Tests -->
+                    </span>
+                    <div class="method-list-content passed suite-Github_Tests">
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Github_Tests" title="SearchTests" class="method navigator-link" hash-for-method="test1_SearchDropdownSecurity">test1_SearchDropdownSecurity</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Github_Tests" title="LoginTests" class="method navigator-link" hash-for-method="test1_VerifyLoginPageTitle">test1_VerifyLoginPageTitle</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Github_Tests" title="SignupTests" class="method navigator-link" hash-for-method="test1_VerifySignUpPageTitle">test1_VerifySignUpPageTitle</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Github_Tests" title="SignupTests" class="method navigator-link" hash-for-method="test2_EmptyFormValidation">test2_EmptyFormValidation</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Github_Tests" title="SearchTests" class="method navigator-link" hash-for-method="test2_SearchSyntaxTipsLink">test2_SearchSyntaxTipsLink</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Github_Tests" title="LoginTests" class="method navigator-link" hash-for-method="test2_ValidLogin">test2_ValidLogin</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Github_Tests" title="SignupTests" class="method navigator-link" hash-for-method="test3_CountryDropdown">test3_CountryDropdown</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Github_Tests" title="LoginTests" class="method navigator-link" hash-for-method="test3_InvalidPasswordShowsError">test3_InvalidPasswordShowsError</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Github_Tests" title="SearchTests" class="method navigator-link" hash-for-method="test3_SearchTesting">test3_SearchTesting</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Github_Tests" title="SearchTests" class="method navigator-link" hash-for-method="test4_FilterIssuesSortNewest">test4_FilterIssuesSortNewest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Github_Tests" title="LoginTests" class="method navigator-link" hash-for-method="test4_ForgotPasswordLink">test4_ForgotPasswordLink</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Github_Tests" title="SignupTests" class="method navigator-link" hash-for-method="test4_InvalidEmailError">test4_InvalidEmailError</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Github_Tests" title="SearchTests" class="method navigator-link" hash-for-method="test5_AdvancedSearch">test5_AdvancedSearch</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Github_Tests" title="LoginTests" class="method navigator-link" hash-for-method="test5_SignInWithGoogle">test5_SignInWithGoogle</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Github_Tests" title="SignupTests" class="method navigator-link" hash-for-method="test5_TermsOfServiceLink">test5_TermsOfServiceLink</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-Github_Tests -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-Github_Tests" class="panel Github_Tests">
+          <div class="suite-Github_Tests-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">SignupTests</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="test1_VerifySignUpPageTitle">
+                  </a> <!-- test1_VerifySignUpPageTitle -->
+                  <span class="method-name">test1_VerifySignUpPageTitle</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test2_EmptyFormValidation">
+                  </a> <!-- test2_EmptyFormValidation -->
+                  <span class="method-name">test2_EmptyFormValidation</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test3_CountryDropdown">
+                  </a> <!-- test3_CountryDropdown -->
+                  <span class="method-name">test3_CountryDropdown</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test4_InvalidEmailError">
+                  </a> <!-- test4_InvalidEmailError -->
+                  <span class="method-name">test4_InvalidEmailError</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test5_TermsOfServiceLink">
+                  </a> <!-- test5_TermsOfServiceLink -->
+                  <span class="method-name">test5_TermsOfServiceLink</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Github_Tests-class-passed -->
+          <div class="suite-Github_Tests-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">SearchTests</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="test1_SearchDropdownSecurity">
+                  </a> <!-- test1_SearchDropdownSecurity -->
+                  <span class="method-name">test1_SearchDropdownSecurity</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test2_SearchSyntaxTipsLink">
+                  </a> <!-- test2_SearchSyntaxTipsLink -->
+                  <span class="method-name">test2_SearchSyntaxTipsLink</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test3_SearchTesting">
+                  </a> <!-- test3_SearchTesting -->
+                  <span class="method-name">test3_SearchTesting</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test4_FilterIssuesSortNewest">
+                  </a> <!-- test4_FilterIssuesSortNewest -->
+                  <span class="method-name">test4_FilterIssuesSortNewest</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test5_AdvancedSearch">
+                  </a> <!-- test5_AdvancedSearch -->
+                  <span class="method-name">test5_AdvancedSearch</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Github_Tests-class-passed -->
+          <div class="suite-Github_Tests-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">LoginTests</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="test1_VerifyLoginPageTitle">
+                  </a> <!-- test1_VerifyLoginPageTitle -->
+                  <span class="method-name">test1_VerifyLoginPageTitle</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test2_ValidLogin">
+                  </a> <!-- test2_ValidLogin -->
+                  <span class="method-name">test2_ValidLogin</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test3_InvalidPasswordShowsError">
+                  </a> <!-- test3_InvalidPasswordShowsError -->
+                  <span class="method-name">test3_InvalidPasswordShowsError</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test4_ForgotPasswordLink">
+                  </a> <!-- test4_ForgotPasswordLink -->
+                  <span class="method-name">test4_ForgotPasswordLink</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="test5_SignInWithGoogle">
+                  </a> <!-- test5_SignInWithGoogle -->
+                  <span class="method-name">test5_SignInWithGoogle</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Github_Tests-class-passed -->
+        </div> <!-- panel Github_Tests -->
+        <div panel-name="test-xml-Github_Tests" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">C:\Users\Theba\Downloads\VSCode\HW - Copy\hw\testng.xml</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite name=&quot;Github Tests&quot; guice-stage=&quot;DEVELOPMENT&quot; verbose=&quot;0&quot;&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;Login Tests&quot; verbose=&quot;0&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;LoginTests&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Login Tests --&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;Signup Tests&quot; verbose=&quot;0&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;SignupTests&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Signup Tests --&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;Search Tests&quot; verbose=&quot;0&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;SearchTests&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Search Tests --&gt;
+&lt;/suite&gt; &lt;!-- Github Tests --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-Github_Tests" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for Github Tests</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">Login Tests (1 class)</span>
+              </li>
+              <li>
+                <span class="test-name">Signup Tests (1 class)</span>
+              </li>
+              <li>
+                <span class="test-name">Search Tests (1 class)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-Github_Tests" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for Github Tests</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-Github_Tests" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for Github Tests</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_Github_Tests');
+function tableData_Github_Tests() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(15);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'test3_InvalidPasswordShowsError')
+data.setCell(0, 2, 'LoginTests')
+data.setCell(0, 3, 12488);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'test2_ValidLogin')
+data.setCell(1, 2, 'LoginTests')
+data.setCell(1, 3, 10700);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'test1_VerifyLoginPageTitle')
+data.setCell(2, 2, 'LoginTests')
+data.setCell(2, 3, 9000);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'test4_ForgotPasswordLink')
+data.setCell(3, 2, 'LoginTests')
+data.setCell(3, 3, 8640);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'test1_SearchDropdownSecurity')
+data.setCell(4, 2, 'SearchTests')
+data.setCell(4, 3, 6261);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'test5_SignInWithGoogle')
+data.setCell(5, 2, 'LoginTests')
+data.setCell(5, 3, 6171);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'test1_VerifySignUpPageTitle')
+data.setCell(6, 2, 'SignupTests')
+data.setCell(6, 3, 5122);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'test3_SearchTesting')
+data.setCell(7, 2, 'SearchTests')
+data.setCell(7, 3, 4368);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'test3_CountryDropdown')
+data.setCell(8, 2, 'SignupTests')
+data.setCell(8, 3, 3837);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'test2_EmptyFormValidation')
+data.setCell(9, 2, 'SignupTests')
+data.setCell(9, 3, 3288);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'test2_SearchSyntaxTipsLink')
+data.setCell(10, 2, 'SearchTests')
+data.setCell(10, 3, 3221);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'test4_FilterIssuesSortNewest')
+data.setCell(11, 2, 'SearchTests')
+data.setCell(11, 3, 2580);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'test5_TermsOfServiceLink')
+data.setCell(12, 2, 'SignupTests')
+data.setCell(12, 3, 2300);
+data.setCell(13, 0, 13)
+data.setCell(13, 1, 'test5_AdvancedSearch')
+data.setCell(13, 2, 'SearchTests')
+data.setCell(13, 3, 1907);
+data.setCell(14, 0, 14)
+data.setCell(14, 1, 'test4_InvalidEmailError')
+data.setCell(14, 2, 'SignupTests')
+data.setCell(14, 3, 1381);
+window.suiteTableData['Github_Tests']= { tableData: data, tableDiv: 'times-div-Github_Tests'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
+              <div id="times-div-Github_Tests">
+              </div> <!-- times-div-Github_Tests -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-Github_Tests" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for Github Tests</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-Github_Tests" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">0 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-Github_Tests" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">LoginTests</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">suiteSetup</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">test1_VerifyLoginPageTitle</span>
+                <span class="method-start">1162 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">resetAfterLoginTest(public void LoginTests.test1_VerifyLoginPageTitle())</span>
+                <span class="method-start">10163 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">test2_ValidLogin</span>
+                <span class="method-start">10167 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">resetAfterLoginTest(public void LoginTests.test2_ValidLogin())</span>
+                <span class="method-start">20867 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">test3_InvalidPasswordShowsError</span>
+                <span class="method-start">23671 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">resetAfterLoginTest(public void LoginTests.test3_InvalidPasswordShowsError())</span>
+                <span class="method-start">36160 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">test4_ForgotPasswordLink</span>
+                <span class="method-start">36161 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">resetAfterLoginTest(public void LoginTests.test4_ForgotPasswordLink() throws java.io.IOException)</span>
+                <span class="method-start">44801 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">test5_SignInWithGoogle</span>
+                <span class="method-start">44802 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">resetAfterLoginTest(public void LoginTests.test5_SignInWithGoogle())</span>
+                <span class="method-start">50973 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-class after">
+                <span class="method-name">suiteTeardown</span>
+                <span class="method-start">50974 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">SignupTests</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">suiteSetup</span>
+                <span class="method-start">53145 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">test1_VerifySignUpPageTitle</span>
+                <span class="method-start">53823 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">test2_EmptyFormValidation</span>
+                <span class="method-start">58945 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">test3_CountryDropdown</span>
+                <span class="method-start">62234 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">test4_InvalidEmailError</span>
+                <span class="method-start">66072 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">test5_TermsOfServiceLink</span>
+                <span class="method-start">67454 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">suiteTeardown</span>
+                <span class="method-start">69755 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">SearchTests</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">suiteSetup</span>
+                <span class="method-start">71896 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">test1_SearchDropdownSecurity</span>
+                <span class="method-start">72554 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">test2_SearchSyntaxTipsLink</span>
+                <span class="method-start">78816 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">test3_SearchTesting</span>
+                <span class="method-start">82037 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">test4_FilterIssuesSortNewest</span>
+                <span class="method-start">86406 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">test5_AdvancedSearch</span>
+                <span class="method-start">88986 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">suiteTeardown</span>
+                <span class="method-start">90893 ms</span>
+              </div> <!-- configuration-class after -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+<script type="text/javascript" src="testng-reports2.js"></script>
+</html>

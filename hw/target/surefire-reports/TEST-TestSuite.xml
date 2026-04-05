@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="TestSuite" time="93.396" tests="15" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="25"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\Theba\Downloads\VSCode\HW - Copy\hw\target\test-classes;C:\Users\Theba\Downloads\VSCode\HW - Copy\hw\target\classes;C:\Users\Theba\.m2\repository\org\seleniumhq\selenium\selenium-java\4.41.0\selenium-java-4.41.0.jar;C:\Users\Theba\.m2\repository\org\seleniumhq\selenium\selenium-api\4.41.0\selenium-api-4.41.0.jar;C:\Users\Theba\.m2\repository\org\jspecify\jspecify\1.0.0\jspecify-1.0.0.jar;C:\Users\Theba\.m2\repository\org\seleniumhq\selenium\selenium-chrome-driver\4.41.0\selenium-chrome-driver-4.41.0.jar;C:\Users\Theba\.m2\repository\com\google\auto\service\auto-service-annotations\1.1.1\auto-service-annotations-1.1.1.jar;C:\Users\Theba\.m2\repository\org\seleniumhq\selenium\selenium-chromium-driver\4.41.0\selenium-chromium-driver-4.41.0.jar;C:\Users\Theba\.m2\repository\org\seleniumhq\selenium\selenium-json\4.41.0\selenium-json-4.41.0.jar;C:\Users\Theba\.m2\repository\org\seleniumhq\selenium\selenium-manager\4.41.0\selenium-manager-4.41.0.jar;C:\Users\Theba\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v143\4.41.0\selenium-devtools-v143-4.41.0.jar;C:\Users\Theba\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v144\4.41.0\selenium-devtools-v144-4.41.0.jar;C:\Users\Theba\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v145\4.41.0\selenium-devtools-v145-4.41.0.jar;C:\Users\Theba\.m2\repository\org\seleniumhq\selenium\selenium-edge-driver\4.41.0\selenium-edge-driver-4.41.0.jar;C:\Users\Theba\.m2\repository\org\seleniumhq\selenium\selenium-firefox-driver\4.41.0\selenium-firefox-driver-4.41.0.jar;C:\Users\Theba\.m2\repository\org\seleniumhq\selenium\selenium-http\4.41.0\selenium-http-4.41.0.jar;C:\Users\Theba\.m2\repository\org\seleniumhq\selenium\selenium-ie-driver\4.41.0\selenium-ie-driver-4.41.0.jar;C:\Users\Theba\.m2\repository\org\seleniumhq\selenium\selenium-remote-driver\4.41.0\selenium-remote-driver-4.41.0.jar;C:\Users\Theba\.m2\repository\com\google\guava\guava\33.5.0-jre\guava-33.5.0-jre.jar;C:\Users\Theba\.m2\repository\com\google\guava\failureaccess\1.0.3\failureaccess-1.0.3.jar;C:\Users\Theba\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\Theba\.m2\repository\com\google\errorprone\error_prone_annotations\2.41.0\error_prone_annotations-2.41.0.jar;C:\Users\Theba\.m2\repository\com\google\j2objc\j2objc-annotations\3.1\j2objc-annotations-3.1.jar;C:\Users\Theba\.m2\repository\io\opentelemetry\opentelemetry-api\1.59.0\opentelemetry-api-1.59.0.jar;C:\Users\Theba\.m2\repository\io\opentelemetry\opentelemetry-context\1.59.0\opentelemetry-context-1.59.0.jar;C:\Users\Theba\.m2\repository\io\opentelemetry\opentelemetry-common\1.59.0\opentelemetry-common-1.59.0.jar;C:\Users\Theba\.m2\repository\io\opentelemetry\opentelemetry-exporter-logging\1.59.0\opentelemetry-exporter-logging-1.59.0.jar;C:\Users\Theba\.m2\repository\io\opentelemetry\opentelemetry-sdk-common\1.59.0\opentelemetry-sdk-common-1.59.0.jar;C:\Users\Theba\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure-spi\1.59.0\opentelemetry-sdk-extension-autoconfigure-spi-1.59.0.jar;C:\Users\Theba\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure\1.59.0\opentelemetry-sdk-extension-autoconfigure-1.59.0.jar;C:\Users\Theba\.m2\repository\io\opentelemetry\opentelemetry-sdk-trace\1.59.0\opentelemetry-sdk-trace-1.59.0.jar;C:\Users\Theba\.m2\repository\io\opentelemetry\opentelemetry-sdk\1.59.0\opentelemetry-sdk-1.59.0.jar;C:\Users\Theba\.m2\repository\io\opentelemetry\opentelemetry-sdk-metrics\1.59.0\opentelemetry-sdk-metrics-1.59.0.jar;C:\Users\Theba\.m2\repository\io\opentelemetry\opentelemetry-sdk-logs\1.59.0\opentelemetry-sdk-logs-1.59.0.jar;C:\Users\Theba\.m2\repository\net\bytebuddy\byte-buddy\1.18.5\byte-buddy-1.18.5.jar;C:\Users\Theba\.m2\repository\org\seleniumhq\selenium\selenium-os\4.41.0\selenium-os-4.41.0.jar;C:\Users\Theba\.m2\repository\org\seleniumhq\selenium\selenium-safari-driver\4.41.0\selenium-safari-driver-4.41.0.jar;C:\Users\Theba\.m2\repository\org\seleniumhq\selenium\selenium-support\4.41.0\selenium-support-4.41.0.jar;C:\Users\Theba\.m2\repository\org\testng\testng\7.12.0\testng-7.12.0.jar;C:\Users\Theba\.m2\repository\org\slf4j\slf4j-api\2.0.16\slf4j-api-2.0.16.jar;C:\Users\Theba\.m2\repository\org\jcommander\jcommander\1.83\jcommander-1.83.jar;C:\Users\Theba\.m2\repository\org\webjars\jquery\3.7.1\jquery-3.7.1.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="America/New_York"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="25"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-25.0.2\bin"/>
+    <property name="sun.java.command" value="C:\Users\Theba\AppData\Local\Temp\surefire11278791724746618644\surefirebooter-20260404212042284_3.jar C:\Users\Theba\AppData\Local\Temp\surefire11278791724746618644 2026-04-04T21-20-42_181-jvmRun1 surefire-20260404212042284_1tmp surefire_0-20260404212042284_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\Theba\Downloads\VSCode\HW - Copy\hw\target\test-classes;C:\Users\Theba\Downloads\VSCode\HW - Copy\hw\target\classes;C:\Users\Theba\.m2\repository\org\seleniumhq\selenium\selenium-java\4.41.0\selenium-java-4.41.0.jar;C:\Users\Theba\.m2\repository\org\seleniumhq\selenium\selenium-api\4.41.0\selenium-api-4.41.0.jar;C:\Users\Theba\.m2\repository\org\jspecify\jspecify\1.0.0\jspecify-1.0.0.jar;C:\Users\Theba\.m2\repository\org\seleniumhq\selenium\selenium-chrome-driver\4.41.0\selenium-chrome-driver-4.41.0.jar;C:\Users\Theba\.m2\repository\com\google\auto\service\auto-service-annotations\1.1.1\auto-service-annotations-1.1.1.jar;C:\Users\Theba\.m2\repository\org\seleniumhq\selenium\selenium-chromium-driver\4.41.0\selenium-chromium-driver-4.41.0.jar;C:\Users\Theba\.m2\repository\org\seleniumhq\selenium\selenium-json\4.41.0\selenium-json-4.41.0.jar;C:\Users\Theba\.m2\repository\org\seleniumhq\selenium\selenium-manager\4.41.0\selenium-manager-4.41.0.jar;C:\Users\Theba\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v143\4.41.0\selenium-devtools-v143-4.41.0.jar;C:\Users\Theba\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v144\4.41.0\selenium-devtools-v144-4.41.0.jar;C:\Users\Theba\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v145\4.41.0\selenium-devtools-v145-4.41.0.jar;C:\Users\Theba\.m2\repository\org\seleniumhq\selenium\selenium-edge-driver\4.41.0\selenium-edge-driver-4.41.0.jar;C:\Users\Theba\.m2\repository\org\seleniumhq\selenium\selenium-firefox-driver\4.41.0\selenium-firefox-driver-4.41.0.jar;C:\Users\Theba\.m2\repository\org\seleniumhq\selenium\selenium-http\4.41.0\selenium-http-4.41.0.jar;C:\Users\Theba\.m2\repository\org\seleniumhq\selenium\selenium-ie-driver\4.41.0\selenium-ie-driver-4.41.0.jar;C:\Users\Theba\.m2\repository\org\seleniumhq\selenium\selenium-remote-driver\4.41.0\selenium-remote-driver-4.41.0.jar;C:\Users\Theba\.m2\repository\com\google\guava\guava\33.5.0-jre\guava-33.5.0-jre.jar;C:\Users\Theba\.m2\repository\com\google\guava\failureaccess\1.0.3\failureaccess-1.0.3.jar;C:\Users\Theba\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\Theba\.m2\repository\com\google\errorprone\error_prone_annotations\2.41.0\error_prone_annotations-2.41.0.jar;C:\Users\Theba\.m2\repository\com\google\j2objc\j2objc-annotations\3.1\j2objc-annotations-3.1.jar;C:\Users\Theba\.m2\repository\io\opentelemetry\opentelemetry-api\1.59.0\opentelemetry-api-1.59.0.jar;C:\Users\Theba\.m2\repository\io\opentelemetry\opentelemetry-context\1.59.0\opentelemetry-context-1.59.0.jar;C:\Users\Theba\.m2\repository\io\opentelemetry\opentelemetry-common\1.59.0\opentelemetry-common-1.59.0.jar;C:\Users\Theba\.m2\repository\io\opentelemetry\opentelemetry-exporter-logging\1.59.0\opentelemetry-exporter-logging-1.59.0.jar;C:\Users\Theba\.m2\repository\io\opentelemetry\opentelemetry-sdk-common\1.59.0\opentelemetry-sdk-common-1.59.0.jar;C:\Users\Theba\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure-spi\1.59.0\opentelemetry-sdk-extension-autoconfigure-spi-1.59.0.jar;C:\Users\Theba\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure\1.59.0\opentelemetry-sdk-extension-autoconfigure-1.59.0.jar;C:\Users\Theba\.m2\repository\io\opentelemetry\opentelemetry-sdk-trace\1.59.0\opentelemetry-sdk-trace-1.59.0.jar;C:\Users\Theba\.m2\repository\io\opentelemetry\opentelemetry-sdk\1.59.0\opentelemetry-sdk-1.59.0.jar;C:\Users\Theba\.m2\repository\io\opentelemetry\opentelemetry-sdk-metrics\1.59.0\opentelemetry-sdk-metrics-1.59.0.jar;C:\Users\Theba\.m2\repository\io\opentelemetry\opentelemetry-sdk-logs\1.59.0\opentelemetry-sdk-logs-1.59.0.jar;C:\Users\Theba\.m2\repository\net\bytebuddy\byte-buddy\1.18.5\byte-buddy-1.18.5.jar;C:\Users\Theba\.m2\repository\org\seleniumhq\selenium\selenium-os\4.41.0\selenium-os-4.41.0.jar;C:\Users\Theba\.m2\repository\org\seleniumhq\selenium\selenium-safari-driver\4.41.0\selenium-safari-driver-4.41.0.jar;C:\Users\Theba\.m2\repository\org\seleniumhq\selenium\selenium-support\4.41.0\selenium-support-4.41.0.jar;C:\Users\Theba\.m2\repository\org\testng\testng\7.12.0\testng-7.12.0.jar;C:\Users\Theba\.m2\repository\org\slf4j\slf4j-api\2.0.16\slf4j-api-2.0.16.jar;C:\Users\Theba\.m2\repository\org\jcommander\jcommander\1.83\jcommander-1.83.jar;C:\Users\Theba\.m2\repository\org\webjars\jquery\3.7.1\jquery-3.7.1.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\Theba"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2026-01-20"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-25.0.2"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\Theba\Downloads\VSCode\HW - Copy\hw"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\Theba\AppData\Local\Temp\surefire11278791724746618644\surefirebooter-20260404212042284_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="25.0.2+10-LTS-69"/>
+    <property name="user.name" value="Theba"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\Theba\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\Theba\AppData\Local\Temp\"/>
+    <property name="java.version" value="25.0.2"/>
+    <property name="user.dir" value="C:\Users\Theba\Downloads\VSCode\HW - Copy\hw"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-25.0.2\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files\PlasticSCM5\server;C:\Program Files\PlasticSCM5\client;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Razer Chroma SDK\bin;C:\Program Files\Razer Chroma SDK\bin;C:\Program Files (x86)\Razer\ChromaBroadcast\bin;C:\Program Files\Razer\ChromaBroadcast\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Users\Theba\AppData\Local\Microsoft\WindowsApps;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Users\Theba\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\Scripts;C:\Users\pc\AppData\Local\Programs\Python\Python311\Scripts;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files\apache-maven-3.9.12\bin;C:\Users\Theba\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\Scripts;C:\Users\Theba\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Theba\AppData\Local\GitHubDesktop\bin;C:\Users\Theba\.dotnet\tools;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="25.0.2+10-LTS-69"/>
+    <property name="stdin.encoding" value="Cp1252"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="69.0"/>
+  </properties>
+  <testcase name="test1_VerifyLoginPageTitle" classname="LoginTests" time="8.998">
+    <system-out><![CDATA[...
+... TestNG 7.12.0 by Cédric Beust (cedric@beust.com)
+...
+
+Login page title: Sign in to GitHub · GitHub
+]]></system-out>
+    <system-err><![CDATA[SLF4J(W): No SLF4J providers were found.
+SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
+Apr 04, 2026 9:20:43 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 146, returning the closest version; found: 145; Please update to a Selenium version that supports CDP version 146
+]]></system-err>
+  </testcase>
+  <testcase name="test2_ValidLogin" classname="LoginTests" time="10.697">
+    <system-out><![CDATA[Post-login page title: GitHub
+]]></system-out>
+  </testcase>
+  <testcase name="test3_InvalidPasswordShowsError" classname="LoginTests" time="12.488">
+    <system-out><![CDATA[Login error message: Incorrect username or password.
+ 
+]]></system-out>
+    <system-err><![CDATA[Apr 04, 2026 9:21:06 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 146, returning the closest version; found: 145; Please update to a Selenium version that supports CDP version 146
+]]></system-err>
+  </testcase>
+  <testcase name="test4_ForgotPasswordLink" classname="LoginTests" time="8.64">
+    <system-out><![CDATA[Screenshot saved to: C:\Users\Theba\Downloads\VSCode\HW - Copy\hw\screenshots\test4_forgot_password.png
+]]></system-out>
+  </testcase>
+  <testcase name="test5_SignInWithGoogle" classname="LoginTests" time="6.171">
+    <system-out><![CDATA[Google sign-in redirect page title: Sign in - Google Accounts
+]]></system-out>
+  </testcase>
+  <testcase name="test1_VerifySignUpPageTitle" classname="SignupTests" time="5.121">
+    <system-out><![CDATA[Sign-up page title: Sign up for GitHub · GitHub
+]]></system-out>
+    <system-err><![CDATA[Apr 04, 2026 9:21:36 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 146, returning the closest version; found: 145; Please update to a Selenium version that supports CDP version 146
+]]></system-err>
+  </testcase>
+  <testcase name="test2_EmptyFormValidation" classname="SignupTests" time="3.287">
+    <system-out><![CDATA[Validation error messages found (3):
+  - Email cannot be blank
+  - Password cannot be blank
+  - Username cannot be blank
+]]></system-out>
+  </testcase>
+  <testcase name="test3_CountryDropdown" classname="SignupTests" time="3.837">
+    <system-out><![CDATA[Country selected: Canada
+]]></system-out>
+  </testcase>
+  <testcase name="test4_InvalidEmailError" classname="SignupTests" time="1.382">
+    <system-out><![CDATA[Email validation error: Email is invalid or already taken
+]]></system-out>
+  </testcase>
+  <testcase name="test5_TermsOfServiceLink" classname="SignupTests" time="2.3">
+    <system-out><![CDATA[Terms of Service URL: https://docs.github.com/en/site-policy/github-terms/github-terms-of-service
+]]></system-out>
+  </testcase>
+  <testcase name="test1_SearchDropdownSecurity" classname="SearchTests" time="6.259">
+    <system-out><![CDATA[Page title after selecting Security: GitHub Security · GitHub
+]]></system-out>
+    <system-err><![CDATA[Apr 04, 2026 9:21:55 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 146, returning the closest version; found: 145; Please update to a Selenium version that supports CDP version 146
+]]></system-err>
+  </testcase>
+  <testcase name="test2_SearchSyntaxTipsLink" classname="SearchTests" time="3.221">
+    <system-out><![CDATA[Search syntax tips URL: https://docs.github.com/en/search-github/github-code-search/understanding-github-code-search-syntax
+]]></system-out>
+  </testcase>
+  <testcase name="test3_SearchTesting" classname="SearchTests" time="4.367">
+    <system-out><![CDATA[Search 'Testing' URL: https://github.com/search?q=Testing&type=repositories
+Screenshot saved: C:\Users\Theba\Downloads\VSCode\HW - Copy\hw\screenshots\test3_search_testing_results.png
+]]></system-out>
+  </testcase>
+  <testcase name="test4_FilterIssuesSortNewest" classname="SearchTests" time="2.58">
+    <system-out><![CDATA[URL after filtering issues: https://github.com/search?q=Testing&type=issues
+Screenshot saved: C:\Users\Theba\Downloads\VSCode\HW - Copy\hw\screenshots\test4_issues_results.png
+]]></system-out>
+  </testcase>
+  <testcase name="test5_AdvancedSearch" classname="SearchTests" time="1.906">
+    <system-out><![CDATA[Advanced search URL: https://github.com/search/advanced
+]]></system-out>
+  </testcase>
+</testsuite>

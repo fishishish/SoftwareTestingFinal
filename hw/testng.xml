@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Github Tests" verbose="2">
+    <test name="Login Tests">
+        <classes>
+            <class name="LoginTests"/>
+        </classes>
+    </test>
+    <test name="Signup Tests">
+        <classes>
+            <class name="SignupTests"/>
+        </classes>
+    </test>
+    <test name="Search Tests">
+        <classes>
+            <class name="SearchTests"/>
+        </classes>
+    </test>
+    <!--
+           Please add this for each of your tests as seen above.
+
+       <test name="Test Name">
+        <classes>
+            <class name="ClassName"/>
+        </classes>
+        </test>
+    -->
+</suite>
