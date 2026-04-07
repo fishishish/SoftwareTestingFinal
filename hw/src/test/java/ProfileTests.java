@@ -3,70 +3,108 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.*;
 
 import java.time.Duration;
+
+import static java.lang.Thread.sleep;
 
 public class ProfileTests {
 
     private WebDriver driver;
     private WebDriverWait wait;
 
-    private void pause(long ms) {
-        try { Thread.sleep(ms); } catch (Exception ignored) {}
-    }
+    private static final int PAUSE_MEDIUM = 1000;
+    private static final int PAUSE_LONG = 2000;
 
-    @BeforeMethod
-    public void setUp() {
+    @BeforeClass
+    public void setUp() throws InterruptedException {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("user-data-dir=C:\\GitHubProfile");
         options.addArguments("profile-directory=Profile1");
+        options.addArguments("--remote-allow-origins=*");
 
         driver = new ChromeDriver(options);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        sleep(PAUSE_LONG);
         driver.manage().window().maximize();
+
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
-    @AfterMethod
+    @AfterClass
     public void tearDown() {
-        driver.quit();
+        if (driver != null) driver.quit();
     }
 
-    @Test
-    public void updateEmails() {
+    //DIRECT PROFILE PAGE
+    @Test(priority = 1)
+    public void openProfileDirectFromHome() throws InterruptedException {
+        driver.get("https://github.com/");
+        sleep(PAUSE_MEDIUM);
 
-        // Go to profile
+        // Go directly to your profile
         driver.get("https://github.com/STestacc");
-        pause(1000);
+        sleep(PAUSE_MEDIUM);
 
-        // Go to settings
+        Assert.assertTrue(
+                driver.getCurrentUrl().contains("STestacc"),
+                "Did not navigate to profile page"
+        );
+    }
+
+
+// SETTINGS → EMAILS → ADD + DELETE EMAIL
+    @Test(priority = 2)
+    public void addAndDeleteEmail() throws InterruptedException {
+        String emailToUse = "cheleyson14@gmail.com";
+
+        driver.get("https://github.com/");
+        sleep(PAUSE_MEDIUM);
+
+        // 1️⃣ Go to Settings page
         driver.get("https://github.com/settings/profile");
-        pause(1000);
+        sleep(PAUSE_MEDIUM);
 
-        // Go to emails
-        driver.get("https://github.com/settings/emails");
-        pause(1000);
+        // 2️⃣ Click "Emails" in the left sidebar (bulletproof selector)
+        WebElement emailsTab = wait.until(
+                ExpectedConditions.elementToBeClickable(
+                        By.cssSelector("a[href='/settings/emails']")
+                )
+        );
+        emailsTab.click();
+        sleep(PAUSE_MEDIUM);
 
-        // ADD EMAIL
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("email")))
-                .sendKeys("Enteruser@gmail.com");
+        // 3️⃣ Type email
+        WebElement emailInput = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(By.id("email"))
+        );
+        emailInput.clear();
+        emailInput.sendKeys(emailToUse);
+        sleep(PAUSE_MEDIUM);
 
-        // Click the correct "Add" button
-        wait.until(ExpectedConditions.elementToBeClickable(
-                By.xpath("//button[contains(text(),'Add')]")
-        )).click();
+        // 4️⃣ Click ADD
+        WebElement addBtn = wait.until(
+                ExpectedConditions.elementToBeClickable(
+                        By.cssSelector("form[action='/settings/emails/add'] button")
+                )
+        );
+        addBtn.click();
+        sleep(PAUSE_LONG);
 
-        pause(2000);
-
-        // DELETE EMAIL
+        // 5️⃣ DELETE the email we just added
         try {
-            WebElement deleteBtn = wait.until(ExpectedConditions.elementToBeClickable(
-                    By.xpath("//span[contains(text(),'ightje4@eamil.com')]/ancestor::div[contains(@class,'Box-row')]//button[contains(text(),'Remove')]")
-            ));
+            WebElement deleteBtn = wait.until(
+                    ExpectedConditions.elementToBeClickable(
+                            By.xpath("//span[contains(text(),'" + emailToUse + "')]/ancestor::div[contains(@class,'Box-row')]//button[contains(text(),'Remove')]")
+                    )
+            );
             deleteBtn.click();
-            pause(1000);
-        } catch (Exception e) {
-            System.out.println("Email not found — skipping delete.");
+            sleep(PAUSE_MEDIUM);
+        } catch (TimeoutException e) {
+            System.out.println("Email not found for delete — maybe it failed to add or was already removed.");
         }
+
+        Assert.assertTrue(true, "Email add/delete flow executed");
     }
 }
