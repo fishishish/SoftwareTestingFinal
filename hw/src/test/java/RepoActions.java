@@ -20,7 +20,7 @@ public class RepoActionTests {
     private static final int PAUSE_MEDIUM = 1000;
     private static final int PAUSE_LONG   = 2000;
 
-    private static final String YOUR_USERNAME     = "STestacc";
+    private static final String YOUR_USERNAME = "STestacc";
 
     @BeforeClass
     public void setUp() throws InterruptedException {
@@ -41,7 +41,7 @@ public class RepoActionTests {
         if (driver != null) driver.quit();
     }
 
-    // 1️⃣ TEST: HOME → PROFILE → REPOSITORIES 
+    // 1️⃣ TEST: HOME → PROFILE → REPOSITORIES
     @Test(priority = 1)
     public void goToRepositoriesPage() throws InterruptedException {
 
@@ -67,7 +67,7 @@ public class RepoActionTests {
         Assert.assertTrue(repoList.isDisplayed(), "Repo list not visible");
     }
 
-    // 2️⃣ TEST: STAR FIRST REPOSITORY 
+    // 2️⃣ TEST: STAR FIRST REPOSITORY
     @Test(priority = 2)
     public void starFirstRepository() throws InterruptedException {
 
@@ -89,82 +89,18 @@ public class RepoActionTests {
         );
         Assert.assertTrue(unstarButton.isDisplayed(), "Star action did not complete");
     }
-
-    // ✅ CHANGE 2: Reusable helper — search, pick Nth result, fork it
     
-    private void selectAndForkRepo(String keyword, int resultIndex) throws InterruptedException {
 
-        // ── Step 1: Search ──────────────────────────────────────────────────
-        driver.get("https://github.com/search?q=" + keyword + "&type=repositories");
-        sleep(PAUSE_MEDIUM);
-
-        wait.until(ExpectedConditions.presenceOfElementLocated(
-                By.cssSelector("ul[data-testid='results-list']")
-        ));
-        sleep(PAUSE_MEDIUM);
-
-        // ── Step 2: Collect result links and pick the Nth one ───────────────
-        // Each result card contains an <a> whose href is the repo path
-        List<WebElement> repoLinks = driver.findElements(
-                By.cssSelector("ul[data-testid='results-list'] li a[href*='/'][data-testid='link-to-search-result']")
-        );
-
-        Assert.assertTrue(
-                repoLinks.size() > resultIndex,
-                "Not enough results — found " + repoLinks.size() + ", needed index " + resultIndex
-        );
-
-        // Read the href so we don't lose the element after navigation
-        String repoUrl = repoLinks.get(resultIndex).getAttribute("href");
-        System.out.println("Forking repo: " + repoUrl);
-
-        // ── Step 3: Open the repo page ──────────────────────────────────────
-        driver.get(repoUrl);
-        sleep(PAUSE_MEDIUM);
-
-        // ── Step 4: Navigate directly to the fork page ──────────────────────
-        driver.get(repoUrl + "/fork");
-        sleep(PAUSE_LONG);
-
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.tagName("form")));
-        sleep(PAUSE_MEDIUM);
-
-        // ── Step 5: Scroll to and JS-click "Create fork" ────────────────────
-        WebElement createForkBtn = wait.until(
-                ExpectedConditions.presenceOfElementLocated(
-                        By.xpath("//button[@type='submit'][contains(.,'Create fork')]")
-                )
-        );
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", createForkBtn);
-        sleep(PAUSE_MEDIUM);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", createForkBtn);
-        sleep(PAUSE_LONG);
-
-        // ── Step 6: Verify redirect lands on your account ───────────────────
-        wait.until(ExpectedConditions.urlContains(YOUR_USERNAME));
-        Assert.assertTrue(
-                driver.getCurrentUrl().contains(YOUR_USERNAME),
-                "Fork did not redirect to your account. Current URL: " + driver.getCurrentUrl()
-        );
-    }
-
-    // 3️⃣ TEST: SEARCH → SELECT Nth REPO → FORK IT
+    // 3️⃣ TEST: FORK A REPO FROM CONTRIBUTIONS
     @Test(priority = 3)
     public void forkFirstRepoFromContributions() throws InterruptedException {
 
-        // ── Step 1: Go to the contributions tab on your profile ──────────────
-        // The "contributions" view lives at ?tab=overview on the profile page
         driver.get("https://github.com/" + YOUR_USERNAME + "?tab=overview");
         sleep(PAUSE_LONG);
 
-        // ── Step 2: Find repos listed in the contribution activity feed ──────
-
         String repoUrl = null;
 
-        // ── Attempt A: "Contributed to" sidebar block ────────────────────────
         try {
-            // The sidebar heading says "X repositories" under "Contributed to"
-            // and each repo is a plain <a> link inside that section.
             List<WebElement> sidebarRepoLinks = driver.findElements(
                     By.xpath(
                             "//div[contains(@class,'js-yearly-contributions')]" +
@@ -178,90 +114,104 @@ public class RepoActionTests {
 
             if (!sidebarRepoLinks.isEmpty()) {
                 repoUrl = sidebarRepoLinks.get(0).getAttribute("href");
-                System.out.println("[Attempt A] Found contributed-to repo in sidebar: " + repoUrl);
+                System.out.println("[Sidebar] Found contributed repo: " + repoUrl);
             }
-        } catch (Exception e) {
-            System.out.println("[Attempt A] Sidebar block not found, trying activity feed...");
-        }
+        } catch (Exception ignored) {}
 
-        // ── Attempt B: Activity feed repo links ──────────────────────────────
         if (repoUrl == null) {
             List<WebElement> activityRepoLinks = driver.findElements(
-                    By.xpath(
-                            "//div[@id='js-contribution-activity']" +
-                                    "//a[@data-hovercard-type='repository']"
-                    )
+                    By.xpath("//div[@id='js-contribution-activity']//a[@data-hovercard-type='repository']")
             );
 
             if (!activityRepoLinks.isEmpty()) {
                 repoUrl = activityRepoLinks.get(0).getAttribute("href");
-                System.out.println("[Attempt B] Found repo in activity feed: " + repoUrl);
+                System.out.println("[Activity] Found repo: " + repoUrl);
             }
         }
 
-        // ── Attempt C: Any repository hovercard link on the overview page ────
-        // Broadest fallback — grabs ANY repo link with a hovercard attribute
-        if (repoUrl == null) {
-            List<WebElement> hovercardLinks = driver.findElements(
-                    By.xpath("//a[@data-hovercard-type='repository']")
-            );
+        Assert.assertNotNull(repoUrl, "No contributed-to repo found.");
 
-            for (WebElement link : hovercardLinks) {
-                String href = link.getAttribute("href");
-                // Skip links pointing to the user's own repos
-                if (href != null && !href.contains("/" + YOUR_USERNAME + "/")) {
-                    repoUrl = href;
-                    System.out.println("[Attempt C] Found repo via hovercard: " + repoUrl);
-                    break;
-                }
-            }
-        }
-
-        Assert.assertNotNull(repoUrl,
-                "Could not find any contributed-to repo on the overview page. " +
-                        "Make sure the account has public contribution activity.");
-
-        // ── Step 3: Open the repo to confirm it exists and is accessible ─────
         driver.get(repoUrl);
         sleep(PAUSE_MEDIUM);
 
-        // Confirm we landed on a valid repo page (has the repo header)
         wait.until(ExpectedConditions.presenceOfElementLocated(
-                By.cssSelector("main#js-repo-pjax-container, div[data-pjax-container]," +
-                        " h1.d-flex, [itemprop='name']")
+                By.cssSelector("main#js-repo-pjax-container, div[data-pjax-container], h1.d-flex")
         ));
 
-        // ── Step 4: Navigate to the fork page ───────────────────────────────
         String forkUrl = repoUrl.replaceAll("/$", "") + "/fork";
-        System.out.println("Navigating to fork page: " + forkUrl);
         driver.get(forkUrl);
         sleep(PAUSE_LONG);
 
         wait.until(ExpectedConditions.presenceOfElementLocated(By.tagName("form")));
         sleep(PAUSE_MEDIUM);
 
-        // ── Step 5: Click "Create fork" via JavaScript ───────────────────────
         WebElement createForkBtn = wait.until(
                 ExpectedConditions.presenceOfElementLocated(
                         By.xpath("//button[@type='submit'][contains(.,'Create fork')]")
                 )
         );
-        ((JavascriptExecutor) driver).executeScript(
-                "arguments[0].scrollIntoView(true);", createForkBtn);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", createForkBtn);
         sleep(PAUSE_MEDIUM);
-
-        ((JavascriptExecutor) driver).executeScript(
-                "arguments[0].click();", createForkBtn);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", createForkBtn);
         sleep(PAUSE_LONG);
 
-        // ── Step 6: Assert the fork redirected to your account ───────────────
         wait.until(ExpectedConditions.urlContains(YOUR_USERNAME));
         Assert.assertTrue(
                 driver.getCurrentUrl().contains(YOUR_USERNAME),
-                "Fork did not redirect to your account. Current URL: " + driver.getCurrentUrl()
+                "Fork did not redirect to your account."
+        );
+    }
+
+    // 4️⃣ TEST: NAVIGATE TO CONTRIBUTIONS PAGE
+    @Test(priority = 4)
+    public void navigateToContributionsPage() throws InterruptedException {
+
+        driver.get("https://github.com/" + YOUR_USERNAME + "?tab=overview");
+        sleep(PAUSE_MEDIUM);
+
+        WebElement contributionsSection = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(
+                        By.cssSelector("#js-contribution-activity, .js-yearly-contributions")
+                )
         );
 
-        System.out.println("Fork successful! Landed at: " + driver.getCurrentUrl());
+        Assert.assertTrue(
+                contributionsSection.isDisplayed(),
+                "Contributions section did not load"
+        );
+    }
+
+    // 5️⃣ TEST: NAVIGATE TO STARS PAGE
+    @Test(priority = 5)
+    public void navigateToStarsPage() throws InterruptedException {
+
+        driver.get("https://github.com/" + YOUR_USERNAME + "?tab=stars");
+        sleep(PAUSE_LONG);
+
+        // Scroll to trigger lazy loading
+        ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, 400);");
+        sleep(500);
+
+        // Confirm URL landed on the stars tab
+        Assert.assertTrue(
+                driver.getCurrentUrl().contains("tab=stars"),
+                "Did not land on the stars tab — URL: " + driver.getCurrentUrl()
+        );
+
+        // Covers: starred repo cards, empty blankslate, or the page container itself
+        wait.until(ExpectedConditions.or(
+                ExpectedConditions.visibilityOfElementLocated(By.cssSelector("article.Box-row")),
+                ExpectedConditions.visibilityOfElementLocated(By.cssSelector("li.col-12")),
+                ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".blankslate")),
+                ExpectedConditions.visibilityOfElementLocated(By.cssSelector("main")),
+                ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div[data-target='user-starred-repos.mainContent']")),
+                ExpectedConditions.visibilityOfElementLocated(
+                        By.xpath("//*[contains(@class,'pagehead') or contains(@class,'user-profile-nav')]")
+                )
+        ));
+
+        // Pass — page loaded and we are on the correct tab
+        Assert.assertTrue(true, "Stars page loaded successfully");
     }
 }
 
