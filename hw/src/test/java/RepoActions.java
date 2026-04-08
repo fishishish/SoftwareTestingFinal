@@ -20,9 +20,6 @@ public class RepoActionTests {
     private static final int PAUSE_MEDIUM = 1000;
     private static final int PAUSE_LONG   = 2000;
 
-  
-    private static final String SEARCH_KEYWORD   = "selenium";
-    private static final int    REPO_RESULT_INDEX = 0; // 0 = first result, 1 = second, etc.
     private static final String YOUR_USERNAME     = "STestacc";
 
     @BeforeClass
