@@ -1,15 +1,19 @@
-import org.openqa.selenium.*;
+import static java.lang.Thread.sleep;
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.*;
-
-import java.time.Duration;
-
-import static java.lang.Thread.sleep;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 public class SettingsTests {
 
@@ -28,7 +32,12 @@ public class SettingsTests {
     public void setUp() throws InterruptedException {
         ChromeOptions options = new ChromeOptions();
 
-        options.addArguments("user-data-dir=/Users/kamybubick/test-profile");
+        // Local Change
+        // Change this to match your user-data path in Chrome, use Chrome://version in browser
+        // May need to manually sign in to the account created by the driver, but it will
+        // Remain signed in
+        options.addArguments("user-data-dir=C:/Users/theba/documents/User Data");
+        options.addArguments("profile-directory=Default");
         options.addArguments("--remote-allow-origins=*");
 
         driver = new ChromeDriver(options);
@@ -53,6 +62,10 @@ public class SettingsTests {
 // ****************** Test 1 - Navigate to Settings ******************
     @Test (priority = 1)
     public void testNavigateToSettings () throws InterruptedException {
+
+        // setup chrome profile, uncomment long sleep to open chrome driver in set folder
+        // gives enough time to login on first test, this can then be commented out
+        // sleep(10000);
 
         // open settings page
         driver.get(SETTINGS_URL);
@@ -118,6 +131,52 @@ public class SettingsTests {
         // scope to correct form
         WebElement form = usernameInput.findElement(By.xpath("./ancestor::form"));
         WebElement changeBtn = form.findElement(By.cssSelector("button[type='submit']"));
+
+        // click safely
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", changeBtn);
+
+        sleep(PAUSE_LONG);
+
+        // change username back afterwards
+
+        driver.get(SETTINGS_URL);
+
+        // click on account link
+        wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Account")));
+        accountLink.click();
+
+        sleep(PAUSE_MEDIUM);
+
+        // click change username
+        wait.until(ExpectedConditions.elementToBeClickable(
+                By.id("dialog-show-rename-warning-dialog")
+                )
+        );
+
+        changeUsernameBtn.click();
+
+        sleep(PAUSE_MEDIUM);
+
+        // click confirmation
+        wait.until(ExpectedConditions.elementToBeClickable(
+                        By.cssSelector("button[data-show-dialog-id='rename-form-dialog']")
+                )
+        );
+        confirmBtn.click();
+
+        sleep(PAUSE_MEDIUM);
+
+        // enter old username
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("login")));
+
+        usernameInput.clear();
+        usernameInput.sendKeys("TestFinal777");
+
+        // trigger UI update
+        ((JavascriptExecutor) driver).executeScript("arguments[0].blur();", usernameInput);
+        driver.findElement(By.tagName("body")).click();
+
+        sleep(PAUSE_LONG);
 
         // click safely
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", changeBtn);

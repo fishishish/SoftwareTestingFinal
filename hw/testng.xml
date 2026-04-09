@@ -17,6 +17,31 @@
             <class name="SearchTests"/>
         </classes>
     </test>
+    <test name="Create Repo Tests">
+        <classes>
+            <class name="CreateRepoTests"/>
+        </classes>
+    </test>
+    <test name="RepoActionsTests">
+        <classes>
+            <class name="RepoActionsTests"/>
+        </classes>
+    </test>
+    <test name="Profile Tests">
+        <classes>
+            <class name="ProfileTests"/>
+        </classes>
+    </test>
+    <test name="Settings Tests">
+        <classes>
+            <class name="SettingsTests"/>
+        </classes>
+    </test>
+    <test name="Constraints Tests">
+        <classes>
+            <class name="ConstraintsTests"/>
+        </classes>
+    </test>
     <!--
            Please add this for each of your tests as seen above.
 

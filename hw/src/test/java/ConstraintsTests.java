@@ -1,14 +1,18 @@
-import org.openqa.selenium.*;
+import static java.lang.Thread.sleep;
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.*;
-
-import java.time.Duration;
-
-import static java.lang.Thread.sleep;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 public class ConstraintsTests {
 
@@ -33,7 +37,8 @@ public class ConstraintsTests {
     public void setUp() throws InterruptedException {
         ChromeOptions options = new ChromeOptions();
 
-        options.addArguments("user-data-dir=/Users/kamybubick/test-profile");
+        options.addArguments("user-data-dir=C:/Users/theba/documents/User Data");
+        options.addArguments("profile-directory=Default");
         options.addArguments("--remote-allow-origins=*");
 
         driver = new ChromeDriver(options);

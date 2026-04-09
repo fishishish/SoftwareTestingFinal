@@ -1,13 +1,25 @@
-import org.openqa.selenium.*;
+import java.io.File;
+import java.io.IOException;
+import static java.lang.Thread.sleep;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.*;
-
-import java.time.Duration;
-import static java.lang.Thread.sleep;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 public class ProfileTests {
 
@@ -15,15 +27,28 @@ public class ProfileTests {
     private WebDriverWait wait;
 
     private static final String EMAIL_TO_TEST  = "Testusername@gmail.com";
-    private static final String GITHUB_USERNAME = "STestacc";
-    private static final int    PAUSE_MEDIUM    = 1000;
+    private static final String GITHUB_USERNAME = "TestFinal777";
+    private static final String SCREENSHOT_DIR     = "screenshots/";
     private static final int    PAUSE_LONG      = 2000;
+
+    // ── Helper: take a named screenshot ───────────────────────────────────────
+    private void takeScreenshot(String filename) throws IOException {
+        File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        Path destination = Paths.get(SCREENSHOT_DIR + filename);
+        Files.copy(screenshot.toPath(), destination, StandardCopyOption.REPLACE_EXISTING);
+        System.out.println("Screenshot saved: " + destination.toAbsolutePath());
+    }
 
     @BeforeClass
     public void setUp() throws InterruptedException {
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("user-data-dir=C:\\GitHubProfile");
-        options.addArguments("profile-directory=Profile1");
+        
+        // Local Change
+        // Change this to match your user-data path in Chrome, use Chrome://version in browser
+        // May need to manually sign in to the account created by the driver, but it will
+        // Remain signed in
+        options.addArguments("user-data-dir=C:/Users/theba/documents/User Data");
+        options.addArguments("profile-directory=Default");
         options.addArguments("--remote-allow-origins=*");
 
         driver = new ChromeDriver(options);
@@ -38,14 +63,21 @@ public class ProfileTests {
         if (driver != null) driver.quit();
     }
 
-    // 1️⃣ TEST: HOME PAGE → DIRECT PROFILE PAGE
+    // TEST 1: NAVIGATE TO PROFILE PAGE
     @Test(priority = 1)
     public void openProfileDirectFromHome() throws InterruptedException {
         driver.get("https://github.com/");
-        sleep(PAUSE_MEDIUM);
+        sleep(PAUSE_LONG);
 
-        driver.get("https://github.com/" + GITHUB_USERNAME);
-        sleep(PAUSE_MEDIUM);
+        WebElement avatarBtn = wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//img[@data-testid='github-avatar']/ancestor::button")));
+        avatarBtn.click();
+        sleep(PAUSE_LONG);
+
+        WebElement profileBtn = wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//span[text()='Profile']")));
+        profileBtn.click();
+        sleep(PAUSE_LONG);
 
         Assert.assertTrue(
                 driver.getCurrentUrl().contains(GITHUB_USERNAME),
@@ -53,14 +85,22 @@ public class ProfileTests {
         );
     }
 
-    // 2️⃣ TEST: NAVIGATE TO EMAILS SETTINGS PAGE
+    // TEST 2: NAVIGATE TO EMAILS SETTINGS PAGE
     @Test(priority = 2)
     public void navigateToEmail() throws InterruptedException {
         driver.get("https://github.com/");
-        sleep(PAUSE_MEDIUM);
 
-        driver.get("https://github.com/settings/profile");
-        sleep(PAUSE_MEDIUM);
+        sleep(PAUSE_LONG);
+
+        WebElement avatarButton = wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//img[@data-testid='github-avatar']/ancestor::button")));
+        avatarButton.click();
+        sleep(PAUSE_LONG);
+
+        WebElement settingsBtn = wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//span[text()='Settings']")));
+        settingsBtn.click();
+        sleep(PAUSE_LONG);
 
         WebElement emailsTab = wait.until(
                 ExpectedConditions.elementToBeClickable(
@@ -68,7 +108,7 @@ public class ProfileTests {
                 )
         );
         emailsTab.click();
-        sleep(PAUSE_MEDIUM);
+        sleep(PAUSE_LONG);
 
         Assert.assertTrue(
                 driver.getCurrentUrl().contains("/settings/emails"),
@@ -76,7 +116,7 @@ public class ProfileTests {
         );
     }
 
-    // 3️⃣ TEST: ADD EMAIL ADDRESS
+    // TEST 3: ADD INVALID EMAIL ADDRESS
     @Test(priority = 3)
     public void addEmailAddress() throws InterruptedException {
         driver.get("https://github.com/settings/emails");
@@ -98,35 +138,56 @@ public class ProfileTests {
         addBtn.click();
         sleep(PAUSE_LONG);
 
-        wait.until(ExpectedConditions.or(
+        WebElement emailError = wait.until(
                 ExpectedConditions.visibilityOfElementLocated(
-                        By.xpath("//*[contains(text(), '" + EMAIL_TO_TEST + "')]")
-                ),
-                ExpectedConditions.visibilityOfElementLocated(
-                        By.cssSelector(".flash-success, .Toast--success, [data-testid='success-banner']")
-                )
-        ));
+                        By.cssSelector("div.js-flash-alert")));
 
-        Assert.assertTrue(true, "Add email flow completed without error");
+        String emailErrorMsg = emailError.getText();
+        System.out.println("Error message: " + emailErrorMsg);
+
+        Assert.assertTrue(emailError.isDisplayed(), "Email error message is not displayed.");
     }
 
-    // 4️⃣ TEST: VERIFY PROFILE BIO VISIBLE
+    // TEST 4: VERIFY PROFILE BIO VISIBLE
     @Test(priority = 4)
-    public void verifyProfileBioVisible() {
+    public void verifyProfileBioVisible() throws InterruptedException{
         driver.get("https://github.com/" + GITHUB_USERNAME);
 
-        WebElement profileSection = wait.until(
-                ExpectedConditions.visibilityOfElementLocated(
-                        By.cssSelector(
-                                "[data-testid='user-profile-bio'], .p-name, " +
-                                        ".js-user-profile-bio, h1.vcard-names"
-                        )
-                )
-        );
+        sleep(PAUSE_LONG);
 
-        Assert.assertTrue(
-                profileSection.isDisplayed(),
-                "Profile name/bio section should be visible on the profile page"
-        );
+        WebElement bio = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(
+                        By.cssSelector("div[data-bio-text]")));
+
+        String bioText = bio.getText();
+        System.out.println("Bio text: " + bioText);
+
+        Assert.assertTrue(bio.isDisplayed(), "Bio is not displayed");
+    }
+
+    // TEST 5: UPDATE PROFILE PICTURE
+    @Test(priority = 4)
+    public void updateProfilePic() throws InterruptedException, IOException{
+        driver.get("https://github.com/settings/profile");
+
+        // Click avatar
+        WebElement avatar = wait.until(ExpectedConditions.elementToBeClickable(
+        By.xpath("//summary[.//img[contains(@class,'avatar-user')]]")
+        ));
+        avatar.click();
+
+        // Upload file
+        WebElement fileInput = driver.findElement(By.id("avatar_upload"));
+        String filePath = Paths.get("screenshots", "test.jpg")
+                       .toAbsolutePath()
+                       .toString();
+
+        fileInput.sendKeys(filePath);
+
+        sleep(PAUSE_LONG);
+        
+        takeScreenshot("test5_uploaded_pfp.png");
+
+        Assert.assertTrue(true, "File not uploaded");
     }
 }

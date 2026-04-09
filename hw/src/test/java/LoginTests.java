@@ -27,7 +27,6 @@ public class LoginTests {
     private WebDriverWait wait;
 
     private static final String BASE_URL       = "https://github.com/";
-    private static final String LOGIN_URL      = "https://github.com/login";
     private static final String VALID_USERNAME = "TestFinal777";
     private static final String VALID_PASSWORD = "ValidExample8!";
     private static final String WRONG_PASSWORD = "InvalidExample";
