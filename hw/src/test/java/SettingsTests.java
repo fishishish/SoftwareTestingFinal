@@ -83,7 +83,7 @@ public class SettingsTests {
     // ****************** Test 2 - Update User Name ******************
     @Test (priority = 2)
     public void testUpdateUserName() throws InterruptedException {
-
+        driver.get(SETTINGS_URL);
         // click on account link
         WebElement accountLink = wait.until(
                 ExpectedConditions.elementToBeClickable(By.linkText("Account"))
@@ -120,7 +120,7 @@ public class SettingsTests {
         );
 
         usernameInput.clear();
-        usernameInput.sendKeys("softwaretestingusername123456");
+        usernameInput.sendKeys("SoftwareTesting123456");
 
         // trigger UI update
         ((JavascriptExecutor) driver).executeScript("arguments[0].blur();", usernameInput);
@@ -137,19 +137,25 @@ public class SettingsTests {
 
         sleep(PAUSE_LONG);
 
-        // change username back afterwards
+    }
 
+    // ****************** Test 2 Copy - Update User Name ******************
+    @Test (priority = 3)
+    public void testUpdateUserNameToOriginal() throws InterruptedException {
         driver.get(SETTINGS_URL);
-
         // click on account link
-        wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Account")));
+        WebElement accountLink = wait.until(
+                ExpectedConditions.elementToBeClickable(By.linkText("Account"))
+        );
+
         accountLink.click();
 
         sleep(PAUSE_MEDIUM);
 
         // click change username
-        wait.until(ExpectedConditions.elementToBeClickable(
-                By.id("dialog-show-rename-warning-dialog")
+        WebElement changeUsernameBtn = wait.until(
+                ExpectedConditions.elementToBeClickable(
+                        By.id("dialog-show-rename-warning-dialog")
                 )
         );
 
@@ -158,7 +164,8 @@ public class SettingsTests {
         sleep(PAUSE_MEDIUM);
 
         // click confirmation
-        wait.until(ExpectedConditions.elementToBeClickable(
+        WebElement confirmBtn = wait.until(
+                ExpectedConditions.elementToBeClickable(
                         By.cssSelector("button[data-show-dialog-id='rename-form-dialog']")
                 )
         );
@@ -166,8 +173,10 @@ public class SettingsTests {
 
         sleep(PAUSE_MEDIUM);
 
-        // enter old username
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("login")));
+        // enter new username
+        WebElement usernameInput = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(By.id("login"))
+        );
 
         usernameInput.clear();
         usernameInput.sendKeys("TestFinal777");
@@ -178,16 +187,19 @@ public class SettingsTests {
 
         sleep(PAUSE_LONG);
 
+        // scope to correct form
+        WebElement form = usernameInput.findElement(By.xpath("./ancestor::form"));
+        WebElement changeBtn = form.findElement(By.cssSelector("button[type='submit']"));
+
         // click safely
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", changeBtn);
 
         sleep(PAUSE_LONG);
 
-
     }
 
     // ****************** Test 3 - Change Site Theme ******************
-    @Test (priority = 3)
+    @Test (priority = 4)
     public void changeTheme() throws InterruptedException{
 
         driver.get(SETTINGS_URL);
@@ -234,7 +246,7 @@ public class SettingsTests {
     }
 
     // ****************** Test 4 - Appearance Settings ******************
-    @Test (priority = 4)
+    @Test (priority = 5)
     public void appearanceSettings() throws InterruptedException {
 
         driver.get(SETTINGS_URL);
@@ -290,7 +302,7 @@ public class SettingsTests {
     }
 
     // ****************** Test 5 - Change Accessibility Features ******************
-    @Test (priority = 5)
+    @Test (priority = 6)
     public void changeAccessibilityFeatures() throws InterruptedException{
         driver.get(SETTINGS_URL);
 
