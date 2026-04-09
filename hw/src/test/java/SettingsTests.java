@@ -1,15 +1,19 @@
-import org.openqa.selenium.*;
+import static java.lang.Thread.sleep;
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.*;
-
-import java.time.Duration;
-
-import static java.lang.Thread.sleep;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 public class SettingsTests {
 
@@ -58,6 +62,10 @@ public class SettingsTests {
 // ****************** Test 1 - Navigate to Settings ******************
     @Test (priority = 1)
     public void testNavigateToSettings () throws InterruptedException {
+
+        // setup chrome profile, uncomment long sleep to open chrome driver in set folder
+        // gives enough time to login on first test, this can then be commented out
+        // sleep(10000);
 
         // open settings page
         driver.get(SETTINGS_URL);
@@ -130,6 +138,15 @@ public class SettingsTests {
         sleep(PAUSE_LONG);
 
         // change username back afterwards
+
+        driver.get(SETTINGS_URL);
+
+        // click on account link
+        wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Account")));
+        accountLink.click();
+
+        sleep(PAUSE_MEDIUM);
+
         // click change username
         wait.until(ExpectedConditions.elementToBeClickable(
                 By.id("dialog-show-rename-warning-dialog")
