@@ -33,7 +33,8 @@ public class ConstraintsTests {
     public void setUp() throws InterruptedException {
         ChromeOptions options = new ChromeOptions();
 
-        options.addArguments("user-data-dir=/Users/kamybubick/test-profile");
+        options.addArguments("user-data-dir=C:/Users/theba/documents/User Data");
+        options.addArguments("profile-directory=Default");
         options.addArguments("--remote-allow-origins=*");
 
         driver = new ChromeDriver(options);

@@ -28,7 +28,12 @@ public class SettingsTests {
     public void setUp() throws InterruptedException {
         ChromeOptions options = new ChromeOptions();
 
-        options.addArguments("user-data-dir=/Users/kamybubick/test-profile");
+        // Local Change
+        // Change this to match your user-data path in Chrome, use Chrome://version in browser
+        // May need to manually sign in to the account created by the driver, but it will
+        // Remain signed in
+        options.addArguments("user-data-dir=C:/Users/theba/documents/User Data");
+        options.addArguments("profile-directory=Default");
         options.addArguments("--remote-allow-origins=*");
 
         driver = new ChromeDriver(options);
@@ -118,6 +123,43 @@ public class SettingsTests {
         // scope to correct form
         WebElement form = usernameInput.findElement(By.xpath("./ancestor::form"));
         WebElement changeBtn = form.findElement(By.cssSelector("button[type='submit']"));
+
+        // click safely
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", changeBtn);
+
+        sleep(PAUSE_LONG);
+
+        // change username back afterwards
+        // click change username
+        wait.until(ExpectedConditions.elementToBeClickable(
+                By.id("dialog-show-rename-warning-dialog")
+                )
+        );
+
+        changeUsernameBtn.click();
+
+        sleep(PAUSE_MEDIUM);
+
+        // click confirmation
+        wait.until(ExpectedConditions.elementToBeClickable(
+                        By.cssSelector("button[data-show-dialog-id='rename-form-dialog']")
+                )
+        );
+        confirmBtn.click();
+
+        sleep(PAUSE_MEDIUM);
+
+        // enter old username
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("login")));
+
+        usernameInput.clear();
+        usernameInput.sendKeys("TestFinal777");
+
+        // trigger UI update
+        ((JavascriptExecutor) driver).executeScript("arguments[0].blur();", usernameInput);
+        driver.findElement(By.tagName("body")).click();
+
+        sleep(PAUSE_LONG);
 
         // click safely
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", changeBtn);
