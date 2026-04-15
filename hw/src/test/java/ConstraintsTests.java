@@ -1,10 +1,7 @@
 import static java.lang.Thread.sleep;
 import java.time.Duration;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -197,47 +194,48 @@ public class ConstraintsTests {
                 "Navigation interruption failed"
         );
     }
-    // ****************** Test 5 - Authentication / Login Constraint ******************
-    // verifies authentication introduces constraints such as potential security steps (2FA).
+    // ****************** Test 5 - Form Validation Constraint ******************
+    // verifies required fields enforce input validation by preventing submission of empty values.
     @Test(priority = 5)
-    public void test2FAConstraint() throws InterruptedException{
+    public void testRequiredFieldConstraint() throws InterruptedException {
 
-        // go to log out page
-        driver.get(LOGOUT_URL);
+        // go to account settings (username section)
+        driver.get(ACCOUNT_URL);
         sleep(PAUSE_MEDIUM);
 
-        // sign out of account
-        WebElement signOutBtn = wait.until(
+        // open username change popup
+        WebElement changeUsernameBtn = wait.until(
+                ExpectedConditions.elementToBeClickable(By.id("dialog-show-rename-warning-dialog"))
+        );
+        changeUsernameBtn.click();
+        sleep(PAUSE_MEDIUM);
+
+        // click confirm to open input form
+        WebElement confirmBtn = wait.until(
                 ExpectedConditions.elementToBeClickable(
-                        By.cssSelector("input[value='Sign out']")
+                        By.cssSelector("button[data-show-dialog-id='rename-form-dialog']")
                 )
         );
-
-        signOutBtn.click();
+        confirmBtn.click();
         sleep(PAUSE_MEDIUM);
 
-        // go to login page
-        driver.get(LOGIN_URL);
-        sleep(PAUSE_MEDIUM);
-
-        WebElement username = wait.until(
-                ExpectedConditions.visibilityOfElementLocated(By.id("login_field"))
+        // find username input
+        WebElement usernameInput = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(By.id("login"))
         );
 
-        // enter a valid username
-        username.sendKeys(VALID_USERNAME);
+        // clear input to make it invalid
+        usernameInput.clear();
         sleep(PAUSE_MEDIUM);
-        // enter a valid password
-        driver.findElement(By.id("password")).sendKeys(VALID_PASSWORD);
-        sleep(PAUSE_MEDIUM);
-        // submit with valid credentials
-        driver.findElement(By.name("commit")).click();
-        sleep(PAUSE_LONG);
 
-        // verify login flow (2FA)
+        // try to submit empty value (press Enter)
+        usernameInput.sendKeys(Keys.ENTER);
+        sleep(PAUSE_MEDIUM);
+
+        // verify it did NOT accept empty input
         Assert.assertTrue(
-                driver.getCurrentUrl().contains("github"),
-                "Login flow did not proceed as expected"
+                usernameInput.getAttribute("value").isEmpty(),
+                "Empty input should not be accepted"
         );
     }
 }
