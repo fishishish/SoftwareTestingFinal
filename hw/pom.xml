@@ -36,7 +36,9 @@
             <version>3.2.5</version>
             <configuration>
                 <suiteXmlFiles>
+                    <!-- change to testng-parallel.xml for parallel testing-->
                     <suiteXmlFile>testng.xml</suiteXmlFile>
+                    <!-- <suiteXmlFile>testng-parallel.xml</suiteXmlFile> -->
                 </suiteXmlFiles>
             </configuration>
         </plugin>

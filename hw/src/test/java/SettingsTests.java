@@ -139,7 +139,7 @@ public class SettingsTests {
 
     }
 
-    // ****************** Test 2 Copy - Update User Name ******************
+    // ****************** Test 2 Copy - Update User Name Back to Original ******************
     @Test (priority = 3)
     public void testUpdateUserNameToOriginal() throws InterruptedException {
         driver.get(SETTINGS_URL);

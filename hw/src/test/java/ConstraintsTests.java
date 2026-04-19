@@ -1,7 +1,11 @@
 import static java.lang.Thread.sleep;
 import java.time.Duration;
 
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -19,11 +23,6 @@ public class ConstraintsTests {
     private static final String BASE_URL = "https://github.com/";
     private static final String ACCOUNT_URL = "https://github.com/settings/admin";
     private static final String APPEARANCES_URL = "https://github.com/settings/appearance";
-    private static final String LOGOUT_URL = "https://github.com/logout";
-    private static final String LOGIN_URL = "https://github.com/login";
-
-    private static final String VALID_USERNAME = "TestFinal777";
-    private static final String VALID_PASSWORD = "ValidExample8!";
 
 
     private static final int PAUSE_SHORT = 500;   // brief beat between actions

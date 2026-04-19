@@ -182,6 +182,8 @@ public class SearchTests {
         Assert.assertTrue(currentUrl.contains("https://github.com/search?q=Testing"),
                 "Expected search testing URL but got: " + currentUrl);
 
+        sleep(PAUSE_MEDIUM);        // Wait for results to load before taking a screenshot
+
         takeScreenshot("test3_search_testing_results.png");
 
         sleep(PAUSE_MEDIUM);
